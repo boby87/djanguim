@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "djanguinmob",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "ftg.djangui",
+  "appName": "djangui",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }

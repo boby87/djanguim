@@ -1,20 +1,53 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="circleBase type2 circle1"></div>
+  <div class="circleBase type1 "></div>
+  <div class="circleBase type2 circle2"></div>
+  <ion-label class="welcomeMessage">
+    <ion-text color="light">Welcome Back</ion-text>
+    <ion-text color="light">
+      <p>Log In</p>
+    </ion-text>
+  </ion-label>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <form [formGroup]="form">
+
+    <ion-list lines="none" class="ion-margin ion-padding ion-text-center">
+      <ion-item class="ion-margin-vertical">
+        <ion-icon name="mail-outline" slot="end" color="medium"></ion-icon>
+        <ion-input formControlName="username" placeholder="Entrer votre pseudo"></ion-input>
+      </ion-item>
+      <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('username').valid && form.get('username').touched">
+        <p class="error">*Votre pseudo est obligatoire</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-icon  (click)="onChange()" [name]="isTypePassword? 'lock-closed-outline':'lock-open-outline'" slot="end" [color]="isTypePassword?'medium':'primary'"></ion-icon>
+        <ion-input [type]="isTypePassword?'password':'text'" formControlName="password" placeholder="Enter password"></ion-input>
+      </ion-item>
+      <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('password').valid && form.get('password').touched">
+        <p class="error" *ngIf="form.get('password').invalid && form.get('password').errors.required">*Please enter your password</p>
+        <p class="error" *ngIf="form.get('password').dirty">*Password must be of atleast 8 charaters</p>
+      </ion-text>
+
+      <ion-row class="ion-margin-vertical">
+        <ion-col size="6" class="alignItems">
+          <div align="left">
+            <ion-checkbox></ion-checkbox>
+            <ion-note>Remember me</ion-note>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div align="rigth">
+            <ion-note>Forgot password?</ion-note>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-button color="primary" shape="round" (click)="onSubmit()">Log In</ion-button>
+      <p class="signup">
+        <ion-note>
+          Not a member yet? <ion-text routerLink="/home/singup" color="primary">Sign Up</ion-text>
+        </ion-note>
+      </p>
+    </ion-list>
+  </form>
 </ion-content>

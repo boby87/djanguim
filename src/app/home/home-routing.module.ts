@@ -6,7 +6,15 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
-  }
+  },
+  {
+    path: 'singup',
+    loadChildren: () => import('./singup/singup.module').then( m => m.SingupPageModule)
+  },
+  {
+    path: 'createreunion',
+    loadChildren: () => import('./createreunion/createreunion.module').then( m => m.CreatereunionPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,71 @@
+
+
+<ion-content>
+
+
+  <form id="form" [formGroup]="form">
+    <div id="header">
+      <ion-icon slot="end" (click)="takePicture()" name="camera-outline"></ion-icon>
+      <img [src]="image?image:'assets/img/shop.svg'">
+    </div>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input formControlName="nomcomplet" placeholder="* Nom Complet" ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('nomcomplet').valid && form.get('nomcomplet').touched">
+      <p class="error">*Bien vouloir entrer le nom complet</p>
+    </ion-text>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input formControlName="cni" placeholder="* CNI"  ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('cni').valid && form.get('cni').touched">
+      <p class="error">*Bien vouloir entrer le numero de la CNI</p>
+    </ion-text>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-select interface="popover" formControlName="sexe" placeholder="* Selectionner le Sexe">
+        <ion-select-option value="Masculin">Masculin</ion-select-option>
+        <ion-select-option value="Feminin">Feminin</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('sexe').valid && form.get('sexe').touched">
+      <p class="error">*Bien vouloir choisir le Sexe</p>
+    </ion-text>
+
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input formControlName="telephone" placeholder="Téléphone" ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('telephone').valid && form.get('telephone').touched">
+      <p class="error">*Bien vouloir entrer le téléphone</p>
+    </ion-text>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-label>Date de naissance</ion-label>
+      <ion-input type="date" formControlName="datenaissance"></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input formControlName="username" placeholder="* Pseudo" ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('username').valid && form.get('username').touched">
+      <p class="error">*Bien vouloir entrer le Pseudo</p>
+    </ion-text>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input formControlName="emails" placeholder="Email"  ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('emails').valid && form.get('emails').touched">
+      <p class="error">*Please enter proper Email</p>
+    </ion-text>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input type="password" formControlName="password" placeholder="password" ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('password').valid && form.get('password').touched">
+      <p class="error" *ngIf="form.get('password').invalid && form.get('password').errors.required">*Please enter your password</p>
+      <p class="error" *ngIf="form.get('password').dirty">*Password must be of atleast 8 charaters</p>
+    </ion-text>
+    <ion-item lines="none" class="ion-margin-bottom">
+      <ion-input type="password" formControlName="rpassword" placeholder="password" ></ion-input>
+    </ion-item>
+    <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('rpassword').valid && form.get('rpassword').touched || form.get('password').value!=form.get('rpassword').value">
+      <p class="error" *ngIf="form.get('rpassword').invalid && form.get('rpassword').errors.required">*Please enter your password</p>
+      <p class="error" *ngIf="form.get('password').value!=form.get('rpassword').value">*Le mot de passe n'est pas identique</p>
+    </ion-text>
+    <ion-button expand="block" shape="round" (click)="onSubmit()">Enregistrer</ion-button>
+  </form>
+</ion-content>

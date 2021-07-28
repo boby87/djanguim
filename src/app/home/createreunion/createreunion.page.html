@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="true">
+  <div class="circleBase type2 circle1"></div>
+  <div class="circleBase type1 "></div>
+  <div class="circleBase type2 circle2"></div>
+  <ion-label class="welcomeMessage">
+    <ion-text color="light">Création</ion-text>
+    <ion-text color="light">
+      <p>Reunion</p>
+    </ion-text>
+  </ion-label>
+  <div id="header">
+    <ion-icon slot="end" (click)="takePicture()" name="camera-outline"></ion-icon>
+    <img [src]="logo?logo:'assets/img/logo.jpg'">
+  </div>
+
+  <form class="ion-margin" [formGroup]="form">
+
+    <ion-list lines="none" class="ion-margin ion-padding ion-text-center">
+      <ion-item class="ion-margin-vertical">
+        <ion-icon name="business-outline" slot="end" color="medium"></ion-icon>
+        <ion-input formControlName="libelle" placeholder="Enter le nom de la reunion"></ion-input>
+      </ion-item>
+      <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('libelle').valid && form.get('libelle').touched">
+        <p class="error">*Le nom de la reunion est obligatoire</p>
+      </ion-text>
+
+      <ion-item class="ion-margin-vertical">
+        <ion-icon name="call-outline" slot="end" color="medium"></ion-icon>
+        <ion-input formControlName="telephone" placeholder="Enter le téléphone"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-vertical">
+        <ion-icon name="mail-outline" slot="end" color="medium"></ion-icon>
+        <ion-input formControlName="email" placeholder="Enter email address"></ion-input>
+      </ion-item>
+      <ion-text class="ion-text-left" color="danger" *ngIf="!form.get('email').valid && form.get('email').touched">
+        <p class="error">*Entrer un mail valide</p>
+      </ion-text>
+
+      <ion-item class="ion-margin-vertical">
+        <ion-icon name="receipt-outline" slot="end" color="medium"></ion-icon>
+        <ion-input formControlName="devise" placeholder="Entrer la dévise"></ion-input>
+      </ion-item>
+
+
+      <ion-item class="ion-margin-vertical">
+        <ion-icon name="reader-outline" slot="end" color="medium"></ion-icon>
+        <ion-input formControlName="statuts" placeholder="Entrer le statut"></ion-input>
+      </ion-item>
+      <ion-button color="primary" size="large"  (click)="onSubmit()">Enregistrer</ion-button>
+
+    </ion-list>
+  </form>
+</ion-content>

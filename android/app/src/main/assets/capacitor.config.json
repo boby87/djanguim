@@ -1,0 +1,6 @@
+{
+	"appId": "ftg.djangui",
+	"appName": "djangui",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
