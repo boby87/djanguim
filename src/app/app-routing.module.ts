@@ -15,30 +15,7 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
-  {
-    path: 'president',
-    loadChildren: () => import('./president/president.module').then( m => m.PresidentPageModule)
-  },
-  {
-    path: 'tresorier',
-    loadChildren: () => import('./tresorier/tresorier.module').then( m => m.TresorierPageModule)
-  },
-  {
-    path: 'secretaire',
-    loadChildren: () => import('./secretaire/secretaire.module').then( m => m.SecretairePageModule)
-  },
-  {
-    path: 'senceur',
-    loadChildren: () => import('./senceur/senceur.module').then( m => m.SenceurPageModule)
-  },
-  {
-    path: 'commissairecompte',
-    loadChildren: () => import('./commissairecompte/commissairecompte.module').then( m => m.CommissairecomptePageModule)
-  },
-  {
-    path: 'aderant',
-    loadChildren: () => import('./aderant/aderant.module').then( m => m.AderantPageModule)
-  },
+
 ];
 
 @NgModule({

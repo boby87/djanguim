@@ -11,6 +11,7 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 export class MembreService {
 
   public roles: Array<any>;
+  public rolename:string;
   membre: Membres;
   public jwtokent: any;
 
@@ -78,30 +79,35 @@ export class MembreService {
     if (this.membre) {
       if (this.membre.roles.findIndex(i => i.role == 'PRESIDENT') != -1) {
         if (this.membre.reunion) {
-          this.router.navigateByUrl("president");
+          this.router.navigateByUrl("/menu/president");
         } else {
           this.router.navigateByUrl("/home/createreunion")
         }
       } else if (this.membre.roles.findIndex(i => i.role == 'SECRETAIRE') != -1) {
-        this.router.navigateByUrl("secretaire");
+        this.router.navigateByUrl("/menu/secretaire");
       } else if (this.membre.roles.findIndex(i => i.role == 'TRESORIE') != -1) {
-        this.router.navigateByUrl("tresorier");
+        this.router.navigateByUrl("/menu/tresorier");
       } else if (this.membre.roles.findIndex(i => i.role == 'COMMISSAIRE_AU_COMPTE') != -1) {
-        this.router.navigateByUrl("commissairecompte");
+        this.router.navigateByUrl("/menu/commissairecompte");
       } else if (this.membre.roles.findIndex(i => i.role == 'SENCEUR') != -1) {
-        this.router.navigateByUrl("senceur");
+        this.router.navigateByUrl("/menu/senceur");
       } else if (this.membre.roles.findIndex(i => i.role == 'ADERANT') != -1) {
-        this.router.navigateByUrl("aderant");
+        this.router.navigateByUrl("/menu/aderant");
       }
     } else {
       this.router.navigateByUrl("");
     }
-
   }
 
   takeUserSave() {
     this.membre = JSON.parse(localStorage.getItem("membre"));
     this.jwtokent = localStorage.getItem("token");
     this.navagateTo();
+  }
+
+  deconnexion(){
+    this.membre=null;
+    localStorage.clear();
+    this.router.navigateByUrl("/")
   }
 }

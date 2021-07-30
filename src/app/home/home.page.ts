@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MembreService} from "../Service/MembreService";
 import {Router} from "@angular/router";
+import {ModalController} from "@ionic/angular";
+import {ModalregisterComponent} from "./modalregister/modalregister.component";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,7 @@ export class HomePage {
 
   form:FormGroup;
   isTypePassword:boolean;
-  constructor(public membreService:MembreService,public router:Router) {
+  constructor(public membreService:MembreService,public router:Router,public modalController: ModalController) {
     this.initForm();
   }
 
@@ -30,5 +32,19 @@ export class HomePage {
 
   onChange() {
     this.isTypePassword=!this.isTypePassword;
+  }
+
+  async presentModal() {
+    this.membreService.rolename='ADERANT';
+    const modal = await this.modalController.create({
+      component: ModalregisterComponent,
+      cssClass: 'modal'
+    });
+    return await modal.present();
+  }
+
+  signToPresi() {
+    this.membreService.rolename='PRESIDENT';
+    this.router.navigateByUrl("/home/singup")
   }
 }

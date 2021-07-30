@@ -12,4 +12,5 @@ export class Reunion{
   seances:Seances[];
   devise:string;
   statuts:string;
+  reference:string;
 }

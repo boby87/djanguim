@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ReunionService} from "../Service/ReunionService";
 
 @Component({
   selector: 'app-president',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresidentPage implements OnInit {
 
-  constructor() { }
+  constructor(public reunionService:ReunionService) { }
 
   ngOnInit() {
   }

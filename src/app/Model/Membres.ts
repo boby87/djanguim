@@ -16,4 +16,5 @@ export class Membres{
   role:string;
   roles:Roles[];
   reunion:Reunion;
+  referent_reunion:string;
 }

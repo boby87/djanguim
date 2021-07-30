@@ -6,6 +6,7 @@ import {HomePage} from './home.page';
 
 import {HomePageRoutingModule} from './home-routing.module';
 import {CreatereunionPage} from "./createreunion/createreunion.page";
+import {ModalregisterComponent} from "./modalregister/modalregister.component";
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import {CreatereunionPage} from "./createreunion/createreunion.page";
     HomePageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,ModalregisterComponent],
 })
 export class HomePageModule {
 }

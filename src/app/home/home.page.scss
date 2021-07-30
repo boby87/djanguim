@@ -57,11 +57,11 @@ ion-list{
     margin: auto;
   }
   .alignItems{
-    ion-checkbox, ion-note{
+    ion-radio, ion-note{
       display: inline-block;
       vertical-align: middle;
     }
-    ion-checkbox{
+    ion-radio{
       margin-right: 1vw;
       --size:1.1rem;
     }
@@ -69,6 +69,10 @@ ion-list{
   .signup{
      margin-top: 5vh;
      font-size: 0.8rem;
+    text-align: left;
+    a{
+      font-size: 12px;
+    }
    }
   ion-col{
     ion-note{
@@ -80,3 +84,4 @@ ion-list{
 .error{
   font-size: 0.75rem;
 }
+

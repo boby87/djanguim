@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Membres} from "../Model/Membres";
+import {MembreService} from "../Service/MembreService";
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  constructor() { }
+  constructor(public membreService:MembreService) { }
 
   ngOnInit() {
   }

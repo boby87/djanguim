@@ -54,7 +54,7 @@ export class SingupPage implements OnInit {
     let membre:Membres;
     membre=this.form.value;
     membre.image=this.image;
-    membre.role="PRESIDENT";
+    membre.role=this.membreService.rolename;
     this.membreService.loadingController.create({
       message:'Enregistrement en cours ..',
       spinner:'dots'

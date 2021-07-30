@@ -49,7 +49,7 @@ export class CreatereunionPage implements OnInit {
         data => {
           l.dismiss();
           this.membreService.membre.reunion=data;
-          //this.membreService.SaveToken(this.membreService.jwtokent);
+          this.membreService.SaveToken(this.membreService.jwtokent);
           this.membreService.presentToast(data.libelle+' créé avec succes');
           this.membreService.router.navigateByUrl('president')
         },error => {

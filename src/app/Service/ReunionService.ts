@@ -17,4 +17,8 @@ export class ReunionService{
     return this.http.post<Reunion>(AdresseIP.host+'reunion/add/'+idpresident,reunion,
       {headers:new HttpHeaders({'Authorization':this.membreService.jwtokent})})
   }
+
+  getReunionByReference(reference:string){
+    return this.http.get<Reunion>(AdresseIP.host+'reunion/by/'+reference);
+  }
 }
